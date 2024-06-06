@@ -2317,7 +2317,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive_DMA(SPI_HandleTypeDef *hspi, uint8_t *
   is performed in DMA reception complete callback  */
   hspi->hdmatx->XferHalfCpltCallback = NULL;
   hspi->hdmatx->XferCpltCallback     = NULL;
-  hspi->hdmatx->XferErrorCallback    = NULL;
+  hspi->hdmatx->XferErrorCallback    = SPI_DMAError; // DMA errors should always be handled
   hspi->hdmatx->XferAbortCallback    = NULL;
 
   /* Enable the Tx DMA Stream/Channel  */
