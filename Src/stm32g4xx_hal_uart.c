@@ -1420,7 +1420,8 @@ HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, const uint8_t
       huart->hdmatx->XferCpltCallback = UART_DMATransmitCplt;
 
       /* Set the UART DMA Half transfer complete callback */
-      huart->hdmatx->XferHalfCpltCallback = UART_DMATxHalfCplt;
+      // huart->hdmatx->XferHalfCpltCallback = UART_DMATxHalfCplt;
+      huart->hdmatx->XferHalfCpltCallback = NULL;
 
       /* Set the DMA error callback */
       huart->hdmatx->XferErrorCallback = UART_DMAError;
@@ -3537,7 +3538,8 @@ HAL_StatusTypeDef UART_Start_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pDa
     huart->hdmarx->XferCpltCallback = UART_DMAReceiveCplt;
 
     /* Set the UART DMA Half transfer complete callback */
-    huart->hdmarx->XferHalfCpltCallback = UART_DMARxHalfCplt;
+    // huart->hdmarx->XferHalfCpltCallback = UART_DMARxHalfCplt;
+    huart->hdmarx->XferHalfCpltCallback = NULL;
 
     /* Set the DMA error callback */
     huart->hdmarx->XferErrorCallback = UART_DMAError;
